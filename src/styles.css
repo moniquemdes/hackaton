@@ -1,0 +1,206 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Reencontro design system.
+ * Warm cream paper, deep ink-teal, and a lantern-amber accent.
+ * All colors use oklch.
+ */
+
+@theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-lantern: var(--lantern);
+  --color-lantern-soft: var(--lantern-soft);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-soft: var(--shadow-soft-value);
+  --shadow-lantern: var(--shadow-lantern-value);
+
+  --animate-glow: glow 4s ease-in-out infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.975 0.012 85);
+  --foreground: oklch(0.24 0.04 225);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: oklch(0.24 0.04 225);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: oklch(0.24 0.04 225);
+  --primary: oklch(0.38 0.07 215);
+  --primary-foreground: oklch(0.975 0.012 85);
+  --secondary: oklch(0.935 0.022 80);
+  --secondary-foreground: oklch(0.3 0.05 220);
+  --muted: oklch(0.945 0.015 85);
+  --muted-foreground: oklch(0.47 0.03 220);
+  --accent: oklch(0.8 0.135 70);
+  --accent-foreground: oklch(0.22 0.04 225);
+  --destructive: oklch(0.55 0.19 28);
+  --destructive-foreground: oklch(0.985 0.005 85);
+  --border: oklch(0.885 0.02 80);
+  --input: oklch(0.86 0.02 80);
+  --ring: oklch(0.55 0.08 215);
+
+  --ink: oklch(0.21 0.04 228);
+  --ink-foreground: oklch(0.96 0.015 85);
+  --ink-muted: oklch(0.75 0.03 220);
+  --lantern: oklch(0.8 0.145 68);
+  --lantern-soft: oklch(0.93 0.06 80);
+  /* WhatsApp green, darkened so white text passes WCAG AA */
+  --whatsapp: oklch(0.5 0.13 155);
+  --whatsapp-foreground: oklch(0.99 0.005 85);
+
+  --gradient-hero: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--ink) 20%, transparent) 0%,
+    color-mix(in oklab, var(--ink) 55%, transparent) 55%,
+    var(--ink) 100%
+  );
+  --gradient-lantern: radial-gradient(
+    circle at 30% 20%,
+    color-mix(in oklab, var(--lantern) 35%, transparent),
+    transparent 60%
+  );
+  --shadow-soft-value: 0 1px 2px color-mix(in oklab, var(--ink) 6%, transparent),
+    0 12px 32px -12px color-mix(in oklab, var(--ink) 18%, transparent);
+  --shadow-lantern-value: 0 10px 40px -10px color-mix(in oklab, var(--lantern) 70%, transparent);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.975 0.012 85);
+  --sidebar-foreground: oklch(0.24 0.04 225);
+  --sidebar-primary: oklch(0.38 0.07 215);
+  --sidebar-primary-foreground: oklch(0.975 0.012 85);
+  --sidebar-accent: oklch(0.935 0.022 80);
+  --sidebar-accent-foreground: oklch(0.3 0.05 220);
+  --sidebar-border: oklch(0.885 0.02 80);
+  --sidebar-ring: oklch(0.55 0.08 215);
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility bg-hero-fade {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-lantern-glow {
+  background-image: var(--gradient-lantern);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+
+  ::selection {
+    background: var(--lantern-soft);
+    color: var(--ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
